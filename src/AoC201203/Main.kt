@@ -1,11 +1,10 @@
 package AoC201203
 
 import java.io.File
-import java.math.BigInteger
 
 class Main {
 
-    // Min lösning del 1 före
+    // Min lösning del 1 FÖRE
     fun myPart1Before(list: List<String>): Int {
         var x = 0
         return list.drop(1).filter { s ->
@@ -27,19 +26,26 @@ class Main {
             y % dy == 0 && field[y][y * dx / dy % width] == '#'
         }
     }
+    /*
+    // DEL 1
+    solve(field, 3 to 1)) // Del 1
+    // DEL 2
+    val vectors = listOf(1 to 1, 3 to 1, 5 to 1, 7 to 1, 1 to 2)
+    vectors.map { solve(field, it).toBigInteger() }.reduce { a, b -> a * b } // Del 2
+    */
 
-    // Min lösning del 1 efter
+    // Min lösning del 1 EFTER
     fun myPart1After(list: List<String>, vector: Pair<Int, Int>): Int =
         list.filterIndexed { idx, s ->
             idx % vector.second == 0 && s[(vector.first * idx / vector.second) % s.length ] == '#'
             }.count()
 
-    // Min lösning del 2 före
+    // Min lösning del 2 FÖRE
     fun myPart2Before(list: List<String>, xIncr: Int, yIncr: Int): Int {
         var counter = 0
         var x = 0
         var y = 0
-        while (y < list.size - 1) {
+        while (y < list.size - yIncr) {
             y += yIncr
             x += xIncr
             if (x >= list[y].length)
@@ -70,6 +76,7 @@ fun main() {
             m.myPart2Before(data, 5, 1) *
             m.myPart2Before(data, 7, 1) *
             m.myPart2Before(data, 1, 2)
+
     println("Del 2 FÖRE: $resultPart2")
     val vectors = listOf(1 to 1, 3 to 1, 5 to 1, 7 to 1, 1 to 2)
     println("Del 2 MELLAN: ${vectors.map { m.solve(data, it).toBigInteger() }.reduce { a, b -> a * b }}")

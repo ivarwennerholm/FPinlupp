@@ -38,7 +38,7 @@ class Main {
             .filter { s -> (s[3][s[0].toInt() - 1] == s[2][0]) xor (s[3][s[1].toInt() - 1] == s[2][0]) }.count()
     }
 
-    // Min lösning del 2 efter
+    // Min lösning del 2 efter (samma lösning)
     fun myPart2After(list: List<String>): Int {
         return list.map { s -> s.split("-", " ", ": ") }
             .filter { s -> (s[3][s[0].toInt() - 1] == s[2][0]) xor (s[3][s[1].toInt() - 1] == s[2][0]) }.count()

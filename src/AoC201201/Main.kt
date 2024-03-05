@@ -5,7 +5,7 @@ import java.io.File
 
 class Main {
 
-    // Min lösning del 1 före
+    // Min lösning del 1 FÖRE
     fun mePart1Before(list: List<Int>): Int {
         for (first in list) {
             for (second in list) {
@@ -29,11 +29,12 @@ class Main {
                 ?.let { a * it }
         }.first()
 
-    // Min lösning del 1 efter
+    // Min lösning del 1 EFTER
     fun mePart1After(list: List<Int>): Int =
         list.mapNotNull { a -> list.firstOrNull { a + it == 2020 }?.let { a * it } }.first()
 
-    // Min lösning del 2 före
+
+    // Min lösning del 2 FÖRE
     fun mePart2Before(list: List<Int>): Int {
         for (first in list) {
             for (second in list) {
@@ -46,7 +47,7 @@ class Main {
         return 0
     }
 
-    /*  Lösning hämtad från:
+    /*  Del 2, lösning hämtad från:
         https://todd.ginsberg.com/post/advent-of-code/2020/day1/ */
     fun toddPart2(input: List<Int>): Int =
         input.mapIndexedNotNull { aIdx, a ->
@@ -62,7 +63,7 @@ class Main {
                 }.firstOrNull()
         }.first()
 
-    // Min lösning del 2efter
+    // Min lösning del 2 EFTER
     fun mePart2After (list: List<Int>) : Int =
         list.mapNotNull { a -> list.
             mapNotNull { b -> list.firstOrNull { a + b + it == 2020 }?.let { a * b * it } }.

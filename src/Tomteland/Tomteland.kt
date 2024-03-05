@@ -38,17 +38,14 @@ class Tomteland {
             "Myran" to listOf("Bladlusen")
         )
 
-
     fun getUnderlings(currentName: String): List<String> {
         val acc: MutableList<String> = mutableListOf()
         fun findNextHierarchyLevel(currentName: String) {
             if (hierarchy.containsKey(currentName)) {
                 val underlings = hierarchy[currentName]!!
                 acc.addAll(underlings)
-                for (underling in underlings) {
-                    if (hierarchy.containsKey(underling))
-                        findNextHierarchyLevel(underling)
-                }
+                underlings.filter { underling -> hierarchy.containsKey(underling) }
+                    .forEach { findNextHierarchyLevel(it) }
             }
         }
         findNextHierarchyLevel(currentName)
