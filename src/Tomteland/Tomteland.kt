@@ -1,7 +1,5 @@
 package Tomteland
 
-import java.util.TooManyListenersException
-
 /*
 Tomtarna på Nordpolen har en strikt chefs-hierarki
 Högsta chefen för allt är "Tomten"
@@ -22,7 +20,6 @@ Funktionen listar sedan namnen på alla underlydande som en given person har
 Exempel: Du anger "Trötter" och får som svar ["Skumtomten", "Dammråttan"]"
 
 För att bli godkänd på uppgiften måste du använda rekursion.
-
  */
 
 class Tomteland {
@@ -55,6 +52,6 @@ class Tomteland {
 }
 
 fun main() {
-    var tl = Tomteland()
+    val tl = Tomteland()
     println(tl.getUnderlings("Tomten"))
 }
